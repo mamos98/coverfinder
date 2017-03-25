@@ -16,7 +16,7 @@
   </div>
   <md-grid-list fxFlex cols="4" *ngIf="!loading && albums.items.length > 0">
     <md-grid-tile fxFlex *ngFor="let album of albums.items">
-      <album-thumbnail fxFlex [albumInfo]="album"></album-thumbnail>
+      <app-thumbnail fxFlex [album]="album"></app-thumbnail>
     </md-grid-tile>
   </md-grid-list>
 </div>

@@ -6,13 +6,11 @@ import { Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./navigation.component.sass']
 })
 export class NavigationComponent implements OnInit {
+  @Input()
+  title = 'Cover Finder';
 
   constructor() { }
 
   ngOnInit() {
   }
-
-  @Input()
-  title: string = 'Cover Finder';
-
 }

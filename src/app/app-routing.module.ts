@@ -23,7 +23,7 @@ const routes: Routes = [
     data: {
       title: 'Search'
     }
-  }, 
+  },
   {
     path: 'detail/:spotifyURI',
     component: DetailsComponent,

@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { GetDetailsService } from '../getDetails/get-details.service';
 
 @Component({
-  selector: 'album-details',
+  selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.sass']
 })
@@ -26,7 +26,7 @@ export class DetailsComponent implements OnInit {
         this.album = response;
         this.tracks = response.tracks.items;
         this.loaded = true;
-      })
+      });
     });
   }
 

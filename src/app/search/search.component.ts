@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
 
   constructor(private getAlbumService: GetAlbumService) {
     this.searchAlbum = () => {
-      if (this.searchQuery !== "") {
+      if (this.searchQuery !== '') {
         this.loading = true;
         getAlbumService
           .getAlbums(this.searchQuery, 'album')
@@ -27,14 +27,14 @@ export class SearchComponent implements OnInit {
               this.loading = false;
             }
           });
-      } else { 
+      } else {
         this.loading = false;
       }
     }
-  }
+;  }
 
   ngOnInit() {
-    this.searchQuery = "";
+    this.searchQuery = '';
     this.loading = true;
   }
 

@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class GetAlbumService {
-  private apiUrl = 'http://api.spotify.com/v1/search'
+  private apiUrl = 'http://api.spotify.com/v1/search';
 
   constructor(private http: Http) { }
 

@@ -1,14 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'album-thumbnail',
+  selector: 'app-thumbnail',
   templateUrl: './thumbnail.component.html',
   styleUrls: ['./thumbnail.component.sass']
 })
 export class ThumbnailComponent implements OnInit {
 
-  @Input('albumInfo')
-  album: Object = {}  
+  @Input() album: Object = {};
 
   constructor() { }
 
