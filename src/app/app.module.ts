@@ -4,19 +4,43 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent } from './root/app.component';
+import { Debounce } from './debounce/debounce.directive';
+
+// Load angular Material and its dependencies
+import 'hammerjs';
+import { MaterialModule, MdGridListModule } from '@angular/material';
+import { NavigationComponent } from './navigation/navigation.component';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { LandingComponent } from './landing/landing.component';
+import { SearchComponent } from './search/search.component';
+import { DetailsComponent } from './details/details.component';
+import { ThumbnailComponent } from './thumbnail/thumbnail.component';
+
+// Import Services
+import { GetAlbumService } from './getAlbum/get-album.service';
+import { GetDetailsService } from './getDetails/get-details.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent,
+    LandingComponent,
+    SearchComponent,
+    Debounce,
+    DetailsComponent,
+    ThumbnailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule.forRoot(),
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [GetAlbumService, GetDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,105 @@
+<div class="details-container" *ngIf="loaded" fxFlex fxFill fxLayout="row" fxLayoutAlign="space-between stretch">
+  <div fxFlex="30">
+    <md-card class="details-sidebar">
+      <img src="{{album.images[0].url}}" md-card-image>
+      <md-card-content class="margin-xxlarge-top">
+        <div class="album-info-container">
+          <div class="album-info">
+            <p>
+              Album: 
+              <a href="{{album.external_urls.spotify}}">
+                <strong>
+                  {{album.name}}
+                </strong>
+              </a>
+            </p>
+          </div>
+          <div class="album-info">
+            <p>
+              Artist:
+              <strong *ngFor="let artist of album.artists; let last= last;">
+                <span *ngIf="!last">
+                  <a href="{{artist.external_urls.spotify}}">{{artist.name}}</a>,
+                </span>
+                <span *ngIf="last">
+                  <a href="{{artist.external_urls.spotify}}">{{artist.name}}</a>
+                </span>
+              </strong>
+            </p>
+          </div>
+          <div class="album-info">
+            <p>
+              Release Date: 
+              <strong>
+                {{album.release_date | date}}
+              </strong>
+            </p>
+          </div>
+          <div class="album-info">
+            <p>
+              Label: 
+              <strong>
+                {{album.label}}
+              </strong>
+            </p>
+          </div>
+        </div>
+        <h4>
+          Download Cover:
+        </h4>
+        <div class="download-cover" fxFlex fxLayout="row" fxLayoutAlign="space-around stretch">
+          <a href="{{image.url}}" md-button color="accent" *ngFor="let image of album.images" class="text-center" target="_blank">
+            <md-icon>file_download</md-icon> {{image.height}}px
+          </a>
+        </div>
+        <hr>
+        <div class="copyrights">
+          <p *ngFor="let copyrights of album.copyrights">
+            {{copyrights.text}}
+          </p>
+        </div>
+        <div class="spotify">
+          <a href="{{album.external_urls.spotify}}">
+            <img class="center-block" src="/assets/images/listen-on-spotify.png" height="40px" alt="Listen on Spotify">
+          </a>
+        </div>
+      </md-card-content>
+    </md-card>
+  </div>
+  <div fxFlex="70">
+    <md-card class="details-main">
+      <md-card-header>
+        <md-card-title>
+          <h3>
+            {{album.name}} - 
+            <span *ngFor="let artist of album.artists; let last= last;">
+              <span *ngIf="!last">
+                <a href="{{artist.external_urls.spotify}}">{{artist.name}}</a>,
+              </span>
+              <span *ngIf="last">
+                <a href="{{artist.external_urls.spotify}}">{{artist.name}}</a>
+              </span>
+            </span>
+          </h3>
+        </md-card-title>
+      </md-card-header>
+      <hr>
+      <md-card-content>
+        <md-list dense class="tracks-list">
+          <md-list-item *ngFor="let track of tracks" class="track">
+            <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+              <h4 fxFlex="30" class="track-name">{{track.track_number}}: {{track.name}}</h4>
+              <audio fxFlex="60" controls>
+                <source src="{{track.preview_url}}" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+              <a fxFlex="10" href="{{track.external_urls.spotify}}">
+                <img src="/assets/images/spotify-icon.png" alt="Listen On Spotify" width="25px">
+              </a>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>

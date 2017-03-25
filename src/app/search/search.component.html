@@ -1,0 +1,22 @@
+<div fxFlex fxFill fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around center" class="landing-background" [ngClass]="{'full-height': searchQuery.length === 0}">
+  <div class="text-center" fxLayout="column" fxFlex="60" fxLayoutAlign="space-between stretch">
+    <h2>Search For your Album</h2>
+    <md-card fxFlex fxFill [ngClass]="{'margin-3xlarge-bottom': searchQuery.length > 0}">
+      <md-input-container fxFlex fxFill>
+        <input mdInput debounce [delay]="700" (func)="searchAlbum()" placeholder="Enter any keyword: Adele 21" [(ngModel)]="searchQuery">
+      </md-input-container>
+    </md-card>
+  </div>
+</div>
+<div fxLayout="row" fxFlex *ngIf="searchQuery.length > 0" fxLayoutAlign="space-around stretch">
+  <md-progress-circle *ngIf="loading" class="margin-5xlarge-bottom margin-5xlarge-top center-block" [color]="'primary'" [mode]="'indeterminate'" [value]="50"></md-progress-circle>
+  <div class="announcement" *ngIf="!loading && albums.items.length === 0">
+    <md-icon>mood_bad</md-icon>
+    <p>Unfortunately your search didn't have any result! Try to be more specific!</p>
+  </div>
+  <md-grid-list fxFlex cols="4" *ngIf="!loading && albums.items.length > 0">
+    <md-grid-tile fxFlex *ngFor="let album of albums.items">
+      <album-thumbnail fxFlex [albumInfo]="album"></album-thumbnail>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
