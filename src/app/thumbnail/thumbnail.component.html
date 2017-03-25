@@ -1,9 +1,0 @@
-<div class="album-thumbnail" on-mouseover="showDetails = true" on-mouseleave="showDetails = false">
-  <a href="javascript:void(0)" routerLink="/detail/{{album.id}}">
-    <img src="{{album.images[0].url}}" class="album-cover" alt="{{album.name + ' - Album'}}">
-    <div *ngIf="showDetails" class="show-details">
-      <span class="artist-name">{{album.artists[0].name}}</span>
-      <span> Click for More Information </span>
-    </div>
-  </a>
-</div>
