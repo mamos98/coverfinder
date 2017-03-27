@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { SearchComponent } from './search/search.component';
 import { DetailsComponent } from './details/details.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,13 @@ const routes: Routes = [
     component: DetailsComponent,
     data: {
       title: 'Album Details'
+    }
+  },
+  {
+    path: 'about',
+    component: AboutPageComponent,
+    data: {
+      title: 'About'
     }
   }
 ];

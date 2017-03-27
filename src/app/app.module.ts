@@ -21,6 +21,7 @@ import { ThumbnailComponent } from './thumbnail/thumbnail.component';
 // Import Services
 import { GetAlbumService } from './getAlbum/get-album.service';
 import { GetDetailsService } from './getDetails/get-details.service';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { GetDetailsService } from './getDetails/get-details.service';
     SearchComponent,
     Debounce,
     DetailsComponent,
-    ThumbnailComponent
+    ThumbnailComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
