@@ -48,7 +48,7 @@
           Download Cover:
         </h4>
         <div class="download-cover" fxFlex fxLayout="row" fxLayoutAlign="space-around stretch">
-          <a href="{{image.url}}" md-button color="accent" *ngFor="let image of album.images" class="text-center" target="_blank">
+          <a href="{{image.url}}" md-button color="accent" *ngFor="let image of album.images" class="text-center" target="_self" download>
             <md-icon>file_download</md-icon> {{image.height}}px
           </a>
         </div>
