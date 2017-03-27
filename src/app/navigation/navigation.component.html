@@ -1,5 +1,14 @@
 <md-toolbar color="primary" fxFlex fxFill>
-  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around center" fxFill>
+  <div fxLayout="row" fxLayoutGap="5px" fxLayoutWrap fxLayoutAlign="space-around center" fxFill>
+    <a fxFlex="nogrow" href="javascript:void(0)" (click)="goBack()" class="navigation-action" *ngIf="title !== 'Cover Finder'">
+      <md-icon>navigate_before</md-icon>
+    </a>
     <span fxFlex class="text-center" routerLink="/">{{title || 'Cover Finder'}}</span>
+    <a fxFlex="none" routerLink="/search" *ngIf="title !== 'Search'" class="navigation-action">
+      <md-icon>search</md-icon>
+    </a>
+    <a fxFlex="none" routerLink="/about" *ngIf="title !== 'About'" class="navigation-action">
+      <md-icon>priority_high</md-icon>
+    </a>
   </div>
 </md-toolbar>

@@ -1,16 +1,22 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.sass']
+  styleUrls: ['./navigation.component.sass'],
+  providers: [Location]
 })
 export class NavigationComponent implements OnInit {
   @Input()
-  title = 'Cover Finder';
+  title: String = 'Cover Finder';
 
-  constructor() { }
+  constructor(private location: Location) {}
 
   ngOnInit() {
+  }
+
+  goBack() {
+    this.location.back();
   }
 }
