@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square150x150logo src="http://masoudmirzaei.ir/coverfinder/assets/favicons/mstile-150x150.png?v=prod1easy"/>
+            <TileColor>#18ffff</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
