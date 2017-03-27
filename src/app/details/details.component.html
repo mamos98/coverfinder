@@ -1,5 +1,5 @@
-<div class="details-container" *ngIf="loaded" fxFlex fxFill fxLayout="row" fxLayoutAlign="space-around stretch">
-  <div fxFlex="30" fxFill>
+<div class="details-container" *ngIf="loaded" fxFlex fxFill fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxLayoutAlign.xs="space-between none" >
+  <div fxFlex="30" fxFlex.xs="100" fxFill>
     <md-card class="details-sidebar">
       <img src="{{album.images[0].url}}" md-card-image>
       <md-card-content class="margin-xxlarge-top">
@@ -66,7 +66,7 @@
       </md-card-content>
     </md-card>
   </div>
-  <div fxFlex="70" fxFill>
+  <div fxFlex="70" fxFlex.xs="100">
     <md-card class="details-main">
       <md-card-header>
         <md-card-title>
@@ -84,22 +84,32 @@
         </md-card-title>
       </md-card-header>
       <hr>
-      <md-card-content>
-        <md-list dense class="tracks-list">
-          <md-list-item *ngFor="let track of tracks" class="track">
-            <div fxFlex fxLayout="row" fxLayoutAlign="space-between center">
-              <h4 fxFlex="30" class="track-name">{{track.track_number}}: {{track.name}}</h4>
-              <audio fxFlex="60" controls>
+      <!--<md-card-content>-->
+        <div class="tracks-list">
+          <div fxFlex fxFill  *ngFor="let track of tracks" class="track">
+            <div fxFlex fxHide.xs fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between center">
+              <h4 fxFlex class="track-name">{{track.track_number}}: {{track.name}}</h4>
+              <audio fxFlex controls>
                 <source src="{{track.preview_url}}" type="audio/mpeg">
                 Your browser does not support the audio tag.
               </audio>
-              <a fxFlex="10" href="{{track.external_urls.spotify}}">
+              <a fxFlex="nogrow" href="{{track.external_urls.spotify}}">
                 <img src="assets/images/spotify-icon.png" alt="Listen On Spotify" width="25px">
               </a>
             </div>
-          </md-list-item>
-        </md-list>
-      </md-card-content>
+            <div fxFlex fxLayout="row" fxLayoutWrap fxShow.xs="true" fxShow.gt-md="false" fxShow="true" fxLayoutAlign="space-between center">
+              <h4 fxFlex class="track-name">{{track.track_number}}: {{track.name}}</h4>
+              <a fxFlex="nogrow" href="{{track.external_urls.spotify}}">
+                <img src="assets/images/spotify-icon.png" alt="Listen On Spotify" width="15px">
+              </a>
+              <audio fxFlex="grow" controls>
+                <source src="{{track.preview_url}}" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+            </div>
+          </div>
+        </div>
+      <!--</md-card-content>-->
     </md-card>
   </div>
 </div>
